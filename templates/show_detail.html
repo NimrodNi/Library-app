@@ -58,7 +58,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#" style="color: yellow;">Главная</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'books' %}" style="color: yellow;">Главная</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="color: yellow;">Хэш теги</a>
@@ -96,16 +96,16 @@
 <div class="container mt-4">
     <div class="movie-card">
         <div class="card">
-            <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="Фильм">
+            <img src="{{ book_id.image.url }}" class="card-img-top" alt="Фильм">
             <div class="card-body">
-                <h5 class="card-title">Название фильма</h5>
-                <p class="card-text">Описание фильма. Здесь будет краткое содержание или интересные факты о фильме.</p>
-                <p><strong>Цена билета:</strong> $10</p>
-                <p><strong>Дата выхода:</strong> 2024-09-24</p>
-                <p><strong>Жанр:</strong> Драма</p>
-                <p><strong>Время:</strong> 120 минут</p>
-                <p><strong>Режиссер:</strong> Имя Режиссера</p>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+                <h5 class="card-title">{{book_id.title}}</h5>
+                <p class="card-text">{{book_id.description }}</p>
+                <p><strong>Цена книги:</strong>{{book_id.price}}$</p>
+                <p><strong>Дата публикации:</strong>{{ book_id.published_at }}</p>
+                <p><strong>Жанр:</strong>{{ book_id.genre }}</p>
+                <p><strong>Количество страниц:</strong>{{book_id.page_amount }}</p>
+                <p><strong>Режиссер:</strong>{{book_id.author }}</p>
+                <iframe width="100%" height="315" src="{{ book_id.audio_version }}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -114,7 +114,7 @@
     <div class="comment-section">
         <h5>Комментарии</h5>
         <div class="comment">
-            <p> (2024-09-24): Офигенный фильм! Рекомендую! <strong>Оценка:</strong> 5</p>
+            <p> (2024-09-24): Офигенная  книга! Рекомендую! <strong>Оценка:</strong> 5</p>
         </div>
     </div>
 </div>
